@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="button">
+
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@color/black</item>
+        <item name="android:padding">12dp</item>
+
+    </style>
+
+
+    <style name="inputLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">bottom</item>
+        <item name="android:background">@color/grey</item>
+        <item name="android:layout_marginBottom">20dp</item>
+
+
+
+
+    </style>
+</resources>
