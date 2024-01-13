@@ -11,7 +11,7 @@ import android.widget.EditText
 import android.widget.TextView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-
+var Questions=mutableListOf<MainActivity.QuizItem>()
 class MainActivity : AppCompatActivity() {
     var questionCounter = 1;
     private lateinit var questionInput: EditText
@@ -56,28 +56,28 @@ class MainActivity : AppCompatActivity() {
             return "QuizItem(question='$question', answer='$answer')"
         }
     }
-    var Questions=mutableListOf<QuizItem>()
+
 
     fun createFlashcard() {
         val questionText = questionInput.text.toString()
         val answerText = answerInput.text.toString()
 
         if (questionText.isNotEmpty()) {
-            // Create a new QuizItem
+
             val newQuizItem = QuizItem(questionText, answerText)
 
-            // Add the new QuizItem to the MutableList
+
             Questions.add(newQuizItem)
 
-            // Save the updated MutableList in SharedPreferences
+
             saveQuestionsToSharedPreferences()
             saveQuestionsListToSharedPreferences(Questions)
 
-            // Update flashcardsTextView with the saved text
+
             flashcardsTextView.text = retrieveSavedText()
             Questions=retrieveQuestions()
 
-            // Clear input fields
+
             questionInput.text.clear()
             answerInput.text.clear()
 
@@ -89,10 +89,10 @@ class MainActivity : AppCompatActivity() {
         val sharedPreferences = getPreferences(Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
-        // Convert the MutableList to a JSON string
+
         val questionsJson = Gson().toJson(Questions)
 
-        // Save the JSON string in SharedPreferences
+
         editor.putString("questionsList", questionsJson)
         editor.apply()
     }
@@ -101,12 +101,12 @@ class MainActivity : AppCompatActivity() {
         val sharedPreferences = getPreferences(Context.MODE_PRIVATE)
         val questionsJson = sharedPreferences.getString("questionsList", "")
 
-        // Convert the JSON string back to a MutableList
+
         val savedQuestions: MutableList<QuizItem> =
             Gson().fromJson(questionsJson, object : TypeToken<MutableList<QuizItem>>() {}.type)
                 ?: mutableListOf()
 
-        // Create a string representation of the saved questions
+
         return savedQuestions.joinToString("\n") { "Q:${it.question} A:${it.answer}" }
     }
 
@@ -114,7 +114,7 @@ class MainActivity : AppCompatActivity() {
         val sharedPreferences = getPreferences(Context.MODE_PRIVATE)
         val questionsJson = sharedPreferences.getString("questionsList", "")
 
-        // Convert the JSON string back to a MutableList
+
         return Gson().fromJson(questionsJson, object : TypeToken<MutableList<QuizItem>>() {}.type)
             ?: mutableListOf()
     }
@@ -123,7 +123,7 @@ class MainActivity : AppCompatActivity() {
         val sharedPreferences = getPreferences(Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
-        // Save the MutableList<QuizItem> directly in SharedPreferences
+
         val jsonAdapter = Gson().getAdapter(object : TypeToken<MutableList<QuizItem>>() {})
         val questionsJson = jsonAdapter.toJson(questions)
 

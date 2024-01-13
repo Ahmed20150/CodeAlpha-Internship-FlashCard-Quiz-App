@@ -3,11 +3,12 @@
 
     <style name="button">
 
-        <item name="android:layout_width">20dp</item>
-        <item name="android:layout_height">20dp</item>
+<!--        <item name="android:layout_width">20dp</item>-->
+<!--        <item name="android:layout_height">20dp</item>-->
         <item name="android:textColor">@android:color/white</item>
         <item name="android:background">@color/black</item>
-        <item name="android:padding">12dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+<!--        <item name="android:padding">12dp</item>-->
 
     </style>
 
