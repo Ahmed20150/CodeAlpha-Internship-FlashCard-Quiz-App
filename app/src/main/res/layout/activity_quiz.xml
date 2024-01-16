@@ -18,24 +18,32 @@
             android:id="@+id/questionText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
             android:text="TEST"
-            android:textSize="24sp"
+            android:textSize="30sp"
             android:gravity="center"
             android:textStyle="bold"/>
 
-        <LinearLayout
-            style="@style/inputLayout"
-            android:layout_height="558dp"
-            >
+<!--        <LinearLayout-->
+<!--            style="@style/inputLayout"-->
+<!--            android:layout_height="558dp"-->
+<!--            >-->
+
+        <EditText
+            android:id="@+id/answerQuizInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="450dp"
+            android:hint="Enter Answer here" />
 
         <Button
             android:id="@+id/nextButton"
             style="@style/button"
             android:layout_width="100dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="150dp"
             android:layout_height="wrap_content"
-            android:onClick="backButton"
             android:text="Next" />
 
 
@@ -49,7 +57,7 @@
             android:onClick="backButton"
             android:text="Back" />
 
-        </LinearLayout>
+<!--        </LinearLayout>-->
 
     </LinearLayout>
 

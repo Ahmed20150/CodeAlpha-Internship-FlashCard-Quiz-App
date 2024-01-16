@@ -1,5 +1,6 @@
 package com.example.codealphaflashcardquizapp
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -61,8 +62,13 @@ class MainActivity : AppCompatActivity() {
     fun createFlashcard() {
         val questionText = questionInput.text.toString()
         val answerText = answerInput.text.toString()
-
-        if (questionText.isNotEmpty()) {
+        if(questionText.isEmpty()){
+            showAlert("Enter Valid Question", "Please Enter a Valid Question Input")
+        }
+        else if(answerText.isEmpty()){
+            showAlert("Enter Valid Answer", "Please Enter a Valid Answer Input")
+        }
+        else {
 
             val newQuizItem = QuizItem(questionText, answerText)
 
@@ -148,6 +154,19 @@ class MainActivity : AppCompatActivity() {
         flashcardsTextView.text = ""
 
         Log.d("MYLISTTEST3", Questions.toString() )
+    }
+
+    private fun showAlert(title: String, message: String) {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(title)
+        builder.setMessage(message)
+
+        builder.setPositiveButton("OK") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        val alertDialog = builder.create()
+        alertDialog.show()
     }
 
 
