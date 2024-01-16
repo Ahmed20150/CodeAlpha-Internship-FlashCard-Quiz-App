@@ -21,7 +21,11 @@ class QuizActivity : AppCompatActivity() {
     private lateinit var answerTextView: EditText
     private lateinit var incorrectAnswerAnimation: ObjectAnimator
     private lateinit var correctAnswerAnimation: ObjectAnimator
-    private var score=0
+
+    companion object{
+        var score=0
+        var total = Questions.size
+    }
     var i = 0;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +38,8 @@ class QuizActivity : AppCompatActivity() {
         val nextbtn: Button = findViewById(R.id.nextButton)
 
         var Questions= Questions;
+
+        score=0;
 
         incorrectAnswerAnimation = ObjectAnimator.ofFloat(questionsTextView, View.TRANSLATION_X, -10f, 10f)
         incorrectAnswerAnimation.duration = 100
@@ -102,7 +108,7 @@ class QuizActivity : AppCompatActivity() {
             incorrectAnswerAnimation.start()
         }
         Handler(Looper.getMainLooper()).postDelayed({
-            if (i<Questions.size){
+            if (i<Questions.size - 1 ){
                 i++;
                 questionsTextView.text= Questions[i].question
                 questionsTextView.setTextColor(Color.BLACK)
@@ -110,8 +116,9 @@ class QuizActivity : AppCompatActivity() {
 
             }
             else{
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, ResultsActivity::class.java)
                 startActivity(intent)
+//                score=0
             }
         }, 2000)
 
