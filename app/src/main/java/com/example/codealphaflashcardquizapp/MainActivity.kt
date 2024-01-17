@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         val createFlashcardButton: Button = findViewById(R.id.createFlashcard)
         val quizButton: Button = findViewById(R.id.quiz)
         val deleteButton: Button = findViewById(R.id.delete)
+        val historyButton: Button = findViewById(R.id.history)
 
         createFlashcardButton.setOnClickListener {
             createFlashcard()
@@ -43,6 +44,10 @@ class MainActivity : AppCompatActivity() {
 
         deleteButton.setOnClickListener {
             deleteAllQuestions()
+        }
+
+        historyButton.setOnClickListener {
+            redirectHistory()
         }
 
         flashcardsTextView.text = retrieveSavedText()
@@ -167,6 +172,11 @@ class MainActivity : AppCompatActivity() {
 
         val alertDialog = builder.create()
         alertDialog.show()
+    }
+
+    fun redirectHistory(){
+        val intent = Intent(this, HistoryActivity::class.java)
+        startActivity(intent)
     }
 
 

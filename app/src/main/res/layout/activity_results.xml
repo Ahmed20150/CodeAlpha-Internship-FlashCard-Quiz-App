@@ -67,8 +67,17 @@
             android:layout_height="wrap_content"
             style="@style/button"
             android:layout_gravity="center"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="90dp"
             android:text="Back to Home Page"/>
+
+        <Button
+            android:id="@+id/historyButton"
+            style="@style/button"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="View Quiz History" />
 
 
 

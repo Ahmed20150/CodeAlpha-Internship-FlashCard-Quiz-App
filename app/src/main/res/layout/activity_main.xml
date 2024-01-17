@@ -21,9 +21,22 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginLeft="200dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="0dp"
             android:background="@android:color/transparent"
             android:text="Delete All Flashcards"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/history"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="0dp"
+            android:background="@android:color/transparent"
+            android:text="View Quiz History"
             android:textColor="@android:color/holo_red_light"
             android:textSize="16sp" />
 
@@ -63,7 +76,7 @@
             <Button
                 android:id="@+id/quiz"
                 style="@style/button"
-                android:layout_width="133dp"
+                android:layout_width="155dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="110dp"
                 android:layout_marginTop="16dp"

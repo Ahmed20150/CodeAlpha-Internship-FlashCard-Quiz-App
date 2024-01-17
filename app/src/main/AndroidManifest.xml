@@ -18,6 +18,8 @@
         <activity
             android:name=".ResultsActivity" />
         <activity
+            android:name=".HistoryActivity" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

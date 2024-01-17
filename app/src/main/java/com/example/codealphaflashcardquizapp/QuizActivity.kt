@@ -24,7 +24,7 @@ class QuizActivity : AppCompatActivity() {
 
     companion object{
         var score=0
-        var total = Questions.size
+//        var total = Questions.size
     }
     var i = 0;
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +37,7 @@ class QuizActivity : AppCompatActivity() {
         val backbtn: Button = findViewById(R.id.backButton)
         val nextbtn: Button = findViewById(R.id.nextButton)
 
-        var Questions= Questions;
+//        var Questions= Questions;
 
         score=0;
 
