@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
             Questions.add(newQuizItem)
 
 
-            saveQuestionsToSharedPreferences()
+//            saveQuestionsToSharedPreferences()
             saveQuestionsListToSharedPreferences(Questions)
 
 
@@ -96,13 +96,25 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun saveQuestionsToSharedPreferences() {
+//    private fun saveQuestionsToSharedPreferences() {
+//        val sharedPreferences = getPreferences(Context.MODE_PRIVATE)
+//        val editor = sharedPreferences.edit()
+//
+//
+//        val questionsJson = Gson().toJson(Questions)
+//
+//
+//        editor.putString("questionsList", questionsJson)
+//        editor.apply()
+//    }
+
+    private fun saveQuestionsListToSharedPreferences(questions: MutableList<QuizItem>) {
         val sharedPreferences = getPreferences(Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
 
-        val questionsJson = Gson().toJson(Questions)
-
+        val jsonAdapter = Gson().getAdapter(object : TypeToken<MutableList<QuizItem>>() {})
+        val questionsJson = jsonAdapter.toJson(questions)
 
         editor.putString("questionsList", questionsJson)
         editor.apply()
@@ -118,7 +130,7 @@ class MainActivity : AppCompatActivity() {
                 ?: mutableListOf()
 
 
-        return savedQuestions.joinToString("\n") { "Q:${it.question} A:${it.answer}" }
+        return savedQuestions.joinToString("\n\n") { "Q:${it.question} A:${it.answer}" }
     }
 
     private fun retrieveQuestions(): MutableList<QuizItem> {
@@ -130,17 +142,7 @@ class MainActivity : AppCompatActivity() {
             ?: mutableListOf()
     }
 
-    private fun saveQuestionsListToSharedPreferences(questions: MutableList<QuizItem>) {
-        val sharedPreferences = getPreferences(Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
 
-
-        val jsonAdapter = Gson().getAdapter(object : TypeToken<MutableList<QuizItem>>() {})
-        val questionsJson = jsonAdapter.toJson(questions)
-
-        editor.putString("questionsList", questionsJson)
-        editor.apply()
-    }
 
     fun goToQuiz() {
 //        setContentView(R.layout.quiz)

@@ -2,6 +2,7 @@ package com.example.codealphaflashcardquizapp
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -15,24 +16,28 @@ import android.app.AlertDialog
 import android.os.Looper
 import android.os.Handler
 import android.widget.EditText
-
+var makeQuiz = false;
 class QuizActivity : AppCompatActivity() {
     private lateinit var questionsTextView: TextView
+    private lateinit var correctAnswerTextView: TextView
     private lateinit var answerTextView: EditText
     private lateinit var incorrectAnswerAnimation: ObjectAnimator
     private lateinit var correctAnswerAnimation: ObjectAnimator
+    private lateinit var fadeInAnimation: ObjectAnimator
 
     companion object{
         var score=0
 //        var total = Questions.size
     }
     var i = 0;
+    @SuppressLint("Recycle")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
 
         questionsTextView= findViewById(R.id.questionText)
         answerTextView = findViewById(R.id.answerQuizInput)
+        correctAnswerTextView= findViewById(R.id.correctAnswer)
 
         val backbtn: Button = findViewById(R.id.backButton)
         val nextbtn: Button = findViewById(R.id.nextButton)
@@ -58,6 +63,10 @@ class QuizActivity : AppCompatActivity() {
             questionsTextView.setTextColor(Color.GREEN)
         }
 
+        fadeInAnimation = ObjectAnimator.ofFloat(correctAnswerTextView, View.ALPHA, 0f, 1f)
+        fadeInAnimation.duration = 600
+        fadeInAnimation.interpolator = AccelerateDecelerateInterpolator()
+        fadeInAnimation.repeatCount = 0
 
 
 
@@ -95,6 +104,7 @@ class QuizActivity : AppCompatActivity() {
 
     }
 
+
     fun nextButton(){
     if(answerTextView.text.isEmpty()){
     showAlert("No Answer Detected", "Please Enter an Answer")
@@ -106,8 +116,11 @@ class QuizActivity : AppCompatActivity() {
         }
         else{
             incorrectAnswerAnimation.start()
+            correctAnswerTextView.text = "Correct Answer: \n ${Questions[i].answer}"
+            fadeInAnimation.start()
         }
         Handler(Looper.getMainLooper()).postDelayed({
+            correctAnswerTextView.text= ""
             if (i<Questions.size - 1 ){
                 i++;
                 questionsTextView.text= Questions[i].question
@@ -116,6 +129,7 @@ class QuizActivity : AppCompatActivity() {
 
             }
             else{
+                makeQuiz = true;
                 val intent = Intent(this, ResultsActivity::class.java)
                 startActivity(intent)
 //                score=0

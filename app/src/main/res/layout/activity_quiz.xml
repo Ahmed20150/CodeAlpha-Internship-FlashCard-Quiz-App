@@ -24,16 +24,20 @@
             android:gravity="center"
             android:textStyle="bold"/>
 
-<!--        <LinearLayout-->
-<!--            style="@style/inputLayout"-->
-<!--            android:layout_height="558dp"-->
-<!--            >-->
+        <TextView
+            android:id="@+id/correctAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text=""
+            android:textSize="25sp"
+            android:layout_marginVertical="255dp"/>
+
 
         <EditText
             android:id="@+id/answerQuizInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="450dp"
             android:hint="Enter Answer here" />
 
         <Button

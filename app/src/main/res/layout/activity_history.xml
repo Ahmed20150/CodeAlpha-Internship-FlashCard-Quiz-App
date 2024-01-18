@@ -8,46 +8,44 @@
 
     <LinearLayout
         android:id="@+id/historyLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="93dp">
+        style="@style/LinearLayout"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="79dp"
+        tools:layout_editor_absoluteY="236dp">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
             android:text="Quiz History"
             android:textSize="40sp"
-            android:layout_gravity="center"
-            android:textStyle="bold"
-            android:layout_marginTop="25dp" />
+            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/HistoryText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:textSize="30sp"
-            android:text=""/>
 
         <Button
-            android:id="@+id/homeButton"
+            android:id="@+id/delete"
+            style="@style/button"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:text="Delete History" />
+
+
+        <Button
+            android:id="@+id/homebtn"
+            style="@style/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            style="@style/button"
-            android:layout_marginTop="500dp"
             android:text="Back to Home Page" />
 
-
-
-
-
-
-
+        <TextView
+            android:id="@+id/historyTextView"
+            style="@style/QuizContainer"/>
 
 
     </LinearLayout>

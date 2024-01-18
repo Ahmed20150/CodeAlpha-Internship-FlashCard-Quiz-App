@@ -25,4 +25,38 @@
 
 
     </style>
+
+
+    <style name="LinearLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+
+    <style name="QuizContainer">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:background">@drawable/bordered_textview_background</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+
+
+    <style name="homeButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginTop">500dp</item>
+        <item name="android:text">Back to Home Page</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@color/black</item>
+    </style>
+
+
 </resources>
